@@ -11,7 +11,7 @@ def send_message():
 
 
 def get_message(week_day):
-    message = 'Сегодня ' + week_day + '-й день, ' + get_trash_cleaner_name(week_day) + ' вынеси мусор, ' + get_mention(get_trash_cleaner_name(week_day))
+    message = 'Сегодня ' + week_day + '-й день, ' + get_trash_cleaner_name(week_day) + ' вынеси мусор\n' + get_mention(get_trash_cleaner_name(week_day))
     return message
 
 
@@ -44,9 +44,9 @@ def get_mention(trash_cleaner_name):
 
 
 def main():
-    schedule.every().day.at("18:00").do(send_message)
-    schedule.every().day.at("20:00").do(send_message)
+    schedule.every().day.at("19:00").do(send_message)
     schedule.every().day.at("21:00").do(send_message)
+    schedule.every().day.at("22:00").do(send_message)
     while True:
         schedule.run_pending()
         time.sleep(1)
