@@ -9,7 +9,8 @@ bot = telebot.TeleBot(secret.get_token())
 
 
 def send_message():
-    bot.send_message(secret.get_group_id(), get_message(get_week_day()))
+    if get_trash_cleaner_name(get_week_day()) != "error":
+        bot.send_message(secret.get_group_id(), get_message(get_week_day()))
 
 
 def get_message(week_day):
